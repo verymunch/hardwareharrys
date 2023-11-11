@@ -1,0 +1,25 @@
+include ../layouts/mainLayout
+
+.container
+    h1.mt-4
+
+    if customers.length == 0
+        h2 Sorry no customer data to display.
+    else
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th(scope='col') Name
+                    th(scope='col') Email
+                    th(scope='col') Total Sales
+            tbody
+                each c in customers
+                    tr
+                        td= c.CustomerName
+                        td= c.CustomerEmail
+                        td= c.TotalSales
+                        td
+                            form(method='get' action='updateCustomers/' + c.CustomerID)
+                                button(type='submit' class='btn btn-primary') Update
+    form(method='get' action='/addCustomer')
+        button(type='submit' class='btn btn-primary') Insert New Customer

@@ -1,0 +1,20 @@
+include ../layouts/mainLayout
+
+.container
+    h1.mt-4
+        h1.mt-4 #{title}
+        p #{subtitle}
+
+    div.mt-2
+        form(action='/insertCustomer' method='post')
+            .row
+                .col
+                    label(for='customerName') #{nameLabel}
+                    input.form-control(type='text' name="customerName" id='customerName' required)
+                    div.pt-2
+                        button.btn.btn-primary(type='submit') Add Record
+                .col
+                    label(for='customerEmail') #{emailLabel}
+                    input.form-control(type='email' name="customerEmail" id='customerEmail' required)
+                    div.pt-2
+                        a.btn.btn-secondary(href='/customers' role='button') Back

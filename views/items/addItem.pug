@@ -1,0 +1,20 @@
+include ../layouts/mainLayout
+
+.container
+    h1.mt-4
+        h1.mt-4 #{title}
+        p #{subtitle}
+
+    div.mt-2
+        form(action='/insertItem' method='post')
+            .row
+                .col
+                    label(for='itemName') #{nameLabel}
+                    input.form-control(type='text' name="itemName" id='itemName' required)
+                    div.pt-2
+                        button.btn.btn-primary(type='submit') Add Record
+                .col
+                    label(for='itemPrice') #{priceLabel}
+                    input.form-control(type='number' name="itemPrice" min="1" step="any" id='itemPrice' required)
+                    div.pt-2
+                        a.btn.btn-secondary(href='items' role='button') Back

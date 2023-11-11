@@ -1,0 +1,46 @@
+head
+    title  Homework 3 - McKyley Cherry [11/10/23]
+    link(href='/css/bootstrap.css' rel='stylesheet')
+    script(src='/js/bootstrap.js' type='application/javascript')
+
+// navigation
+nav.navbar.navbar-expand-lg(style='background-color: #00147D;').static-top
+    .container
+        a.navbar-brand(href='/')
+            img(src='/imgs/logo.png' alt='Company Logo' height='90')
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        span.text-light
+            | Happy Harry's Hardware
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto
+                if from == 'showCustomers' || from == 'customerUpdateForm' || from == 'addCustomer'
+                    nav.nav.nav-pills.nav-justified
+                        a.nav-link(href='/') Home
+                        a.nav-link.active(href='/customers' style='color:black; font-weight: 900; font-style:italic') Customers
+                        a.nav-link(href='/items') Products
+                        a.nav-link(href='/sales') Sales
+                else if from == 'showItems' || from == 'addItem'
+                    nav.nav.nav-pills.nav-justified
+                        a.nav-link(href='/') Home
+                        a.nav-link(href='/customers') Customers
+                        a.nav-link.active(href='/items' style='color:black; font-weight: 900; font-style:italic') Products
+                        a.nav-link(href='/sales') Sales
+                else if from == 'showSales'
+                    nav.nav.nav-pills.nav-justified
+                        a.nav-link(href='/') Home
+                        a.nav-link(href='/customers') Customers
+                        a.nav-link(href='/items') Products
+                        a.nav-link.active(href='/sales' style='color:black; font-weight: 900; font-style:italic') Sales
+                else if from == 'home'
+                    nav.nav.nav-pills.nav-justified
+                        a.nav-link.active(href='/' style='color:black; font-weight: 900; font-style:italic') Home
+                        a.nav-link(href='/customers') Customers
+                        a.nav-link(href='/items') Products
+                        a.nav-link(href='/sales') Sales
+                else
+                    nav.nav.nav-pills.nav-justified
+                        a.nav-link(href='/') Home
+                        a.nav-link(href='/customers') Customers
+                        a.nav-link(href='/items') Products
+                        a.nav-link(href='/sales') Sales

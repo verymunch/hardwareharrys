@@ -1,0 +1,24 @@
+include ../layouts/mainLayout
+
+.container
+    h1.mt-4
+
+    if sales.length == 0
+        h2 Sorry no sales data to display.
+    else
+        table.table.table-striped.table-hover
+            thead
+                tr
+                    th(scope='col') Date
+                    th(scope='col') Customer
+                    th(scope='col') Product
+                    th(scope='col') Quantity
+                    th(scope='col') Total Sales
+            tbody
+                each s in sales
+                    tr
+                        td= s.Date
+                        td= s.CustomerName
+                        td= s.Product
+                        td= s.Quantity
+                        td= s.TotalSales

@@ -1,0 +1,24 @@
+include ../layouts/mainLayout
+
+.container
+    h1.mt-4
+    h1.mt-4 Update Customer #{cusID} Information
+    p
+        | #{subtitle}
+    if (customer == null)
+        h2 Sorry customer data is null.
+    div.mt-2
+        form(action='/updateCustomer' method='post')
+            .row
+                .col
+                    .form-group
+                    input.form-control(type='hidden' name='customerID' value= customer.CustomerID)
+                    label(for='customerName') #{nameLabel}
+                    input.form-control(type='text' id='customerName' name='customerName' required value= customer.CustomerName)
+                    div.pt-2
+                        button.btn.btn-warning(type='submit') Update Record
+                .col
+                    label(for='customerEmail') #{emailLabel}
+                    input.form-control(type='email' id='customerEmail' name='customerEmail' required value= customer.CustomerEmail)
+                    div.pt-2
+                        a.btn.btn-secondary(href='/customers' role='button') Back

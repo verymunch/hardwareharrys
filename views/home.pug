@@ -1,0 +1,51 @@
+include layouts/mainLayout
+
+.container
+    h1.mt-4
+
+    if customers.length == 0 && items.length == 0 && sales.length == 0
+        h2 Sorry no top five data to display.
+    else
+        .row
+                .col-md-4
+                    h3 Top Customers
+                    table.table.table-striped.table-hover
+                        thead
+                            tr
+                                th(scope='col') Name
+                                th(scope='col') Total Sales
+                        tbody
+                            each c in customers
+                                tr
+                                    td= c.CustomerName
+                                    td= c.TotalSales
+                    form(method='get' action='/customers')
+                        button( type='submit' class='btn btn-secondary') Show All
+                .col-md-4
+                    h3 Top Products
+                    table.table.table-striped.table-hover
+                        thead
+                            tr
+                                th(scope='col') Product
+                                th(scope='col') Total Sales
+                        tbody
+                            each i in items
+                                tr
+                                    td= i.ItemName
+                                    td= i.TotalSales
+                    form(method='get' action='/items')
+                        button( type='submit' class='btn btn-secondary') Show All
+                .col-md-4
+                    h3 Sales
+                    table.table.table-striped.table-hover
+                        thead
+                            tr
+                                th(scope='col') Month
+                                th(scope='col') Total Sales
+                        tbody
+                            each s in sales
+                                tr
+                                    td= s.Date
+                                    td= s.TotalSales
+                    form(method='get' action='/sales')
+                        button( type='submit' class='btn btn-secondary') Show All
